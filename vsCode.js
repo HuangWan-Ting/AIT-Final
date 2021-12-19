@@ -20,6 +20,30 @@ function clickMenu(){
     }
 }
 
+document.addEventListener('keydown', distance);
+function distance(event) {
+    if(event.keyCode == 107){
+        console.log('far');
+
+        $("#text").css("font-size", "24px");
+                
+        if(open.width != 0){
+            $("#open").css("width", "0%");
+            isOpen = true;
+        }
+
+    }else if(event.keyCode == 109){
+        console.log('near');
+
+        $("#text").css("font-size", "18px");
+                
+        if(isOpen){
+            $("#open").css("width", "17%");
+        }
+        isOpen = false;
+    }
+}
+
 function readTextFile()
 {
     var rawFile = new XMLHttpRequest();

@@ -85,31 +85,41 @@ $('#prague').mouseleave(function(){
     inPicture = ""
 });
 
-function readTextFile()
-{
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", 'output.txt');
-    // console.log(rawFile)
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                console.log(allText)
-                if(preText != allText){
-                    preText = allText;
-                    if(allText == 1){
-                        console.log('far');
-                
-                        window.location.assign("tripadvisorFar.html#" + inPicture);
-                    }
-                }
-            }
-        }
+document.addEventListener('keydown', distance);
+function distance(event) {
+    if(event.keyCode == 107){
+        console.log('far');
+
+        window.location.assign("tripadvisorFar.html#" + inPicture);
+
     }
-    rawFile.send(null);
 }
 
-setInterval(readTextFile, 5);
+// function readTextFile()
+// {
+//     var rawFile = new XMLHttpRequest();
+//     rawFile.open("GET", 'output.txt');
+//     // console.log(rawFile)
+//     rawFile.onreadystatechange = function ()
+//     {
+//         if(rawFile.readyState === 4)
+//         {
+//             if(rawFile.status === 200 || rawFile.status == 0)
+//             {
+//                 var allText = rawFile.responseText;
+//                 console.log(allText)
+//                 if(preText != allText){
+//                     preText = allText;
+//                     if(allText == 1){
+//                         console.log('far');
+                
+//                         window.location.assign("tripadvisorFar.html#" + inPicture);
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     rawFile.send(null);
+// }
+
+// setInterval(readTextFile, 5);
